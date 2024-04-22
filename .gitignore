@@ -1,0 +1,15 @@
+data/test
+data/train
+out
+.vscode
+*.pyc
+wandb
+lightning_logs
+unetetmira
+*.pth
+*.pdf
+*.csv
+*.ipynb
+*.png
+results/*.png
+samples

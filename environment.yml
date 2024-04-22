@@ -1,0 +1,7 @@
+name: etmira
+channels:
+  - conda-forge
+dependencies:
+  - python==3.11.5
+  - pip==23.2.1
+  - lightning==2.0.8
