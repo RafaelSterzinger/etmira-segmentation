@@ -94,7 +94,7 @@ def train_model(device, gpu, use_cps, arch, batch_train, batch_val, lr, ckpt, en
         unet = UNet.load_from_checkpoint(ckpt)
     trainer.test(model=unet, dataloaders=testloader)
     eval_model(["--device", gpu, "--ckpt",
-                         ckpt])
+                         ckpt, "--eval_mirror", "ANSA-VI-1700_R"])
 
 
 if __name__ == '__main__':

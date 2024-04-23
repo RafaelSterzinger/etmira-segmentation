@@ -20,10 +20,10 @@ from config import REGEX_MASK
 from utils.utils import create_weight_map, get_iou, get_pf, get_avg_fun_over_set, get_predicted_mask, get_soft_image, visualize_overlap
 
 @click.command()
-@click.option('--device', default=0, help='accelarator to train on')
+@click.option('--gpu', default=0, help='accelarator to train on')
 @click.option('--ckpt', help='path to checkpoint', required=True)
-@click.option('--eval_mirrors', default=['ANSA-VI-1700_R'], help='mirrors to run inference on')
-def eval_model(device, ckpt, eval_mirrors):
+@click.option('--eval_mirror', default=None, help='mirror to run inference on')
+def eval_model(gpu, ckpt, eval_mirror):
 
     if os.path.exists(ckpt) and ".ckpt" in ckpt:
         print("Resume training from checkpoint")
@@ -34,7 +34,7 @@ def eval_model(device, ckpt, eval_mirrors):
     if not os.path.exists(DIR_EVAL):
         os.makedirs(DIR_EVAL)
 
-    device = f'cuda:{device}'
+    device = f'cuda:{gpu}'
     patch_size = None
     try:
         patch_size = torch.load(ckpt)['patch_size']
@@ -53,10 +53,10 @@ def eval_model(device, ckpt, eval_mirrors):
         res = re.search(REGEX_MASK, valid_mirror)
         if res:
             view_id = res.group(1)
-            if view_id not in eval_mirrors:
+            if eval_mirror is not None and view_id != eval_mirror:
                 continue
             try:
-                f_gt = os.path.join(DIR_GT, valid_mirror)
+                f_gt = os.path.join(DIR_GT, f"{view_id}_drawings.png12")
                 assert os.path.exists(f_gt)
             except:
                 f_gt = None
@@ -98,7 +98,7 @@ def eval_model(device, ckpt, eval_mirrors):
         orig_dim, image_soft = get_soft_image(dataset, image)
         image_soft[~mask] = 0
         cv2.imwrite(os.path.join(
-            DIR_EVAL, f"{view_id}_soft.png"), (image_soft).astype(np.uint8))
+            DIR_EVAL, f"{view_id}_soft.png"), (255-(image_soft).astype(np.uint8)))
 
         image_soft = image_soft/255.0
         if gt is not None:
@@ -121,7 +121,7 @@ def eval_model(device, ckpt, eval_mirrors):
         image_hard = np.where(image_soft >= threshold, np.ones(
             orig_dim, dtype=bool), np.zeros(orig_dim, dtype=bool))
         cv2.imwrite(os.path.join(
-            DIR_EVAL, f"{view_id}_drawings.png"), (image_hard*255).astype(np.uint8))
+            DIR_EVAL, f"{view_id}_prediction.png"), (255-(image_hard*255).astype(np.uint8)))
 
         if gt is not None:
             image_error = visualize_overlap(
