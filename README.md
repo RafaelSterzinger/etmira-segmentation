@@ -56,7 +56,7 @@ Finally, to preprocess the raw data for the training run:
 
 Additionally, run ```python -m setup --use_labelled False``` in order to set up the data for cross-pseudo-supervision experiments. Note, however, that this will require lots of memory.
 
-## Running
+## Training
 
 In order to start training using the parameters of our best-reported model, type the following:
 
@@ -69,9 +69,9 @@ If interested, parameters can be adjusted via command line arguments (see ```tra
 
 In order to run inference on any mirror, run the following:
 
-    python -m eval --ckpt CHECKPOINT_OF_MODEL --eval_mirrors MIRRORS_TO_RUN_INFERENCE_ON
+    python -m eval --ckpt CHECKPOINT_OF_MODEL --eval_mirror MIRROR_TO_RUN_INFERENCE_ON
 
-Its output will be stored in the same folder as the checkpoint.
+The output will be stored in the folder where the checkpoint is located.
 
 ## Contact
 In case you have questions or find some errors, do not hesitate to contact me rsterzinger(at)cvl.tuwien.ac.at. 
@@ -79,4 +79,11 @@ In case you have questions or find some errors, do not hesitate to contact me rs
 ## References
 Please consider citing our paper if you find it helpful!
 
-TBD
+    @misc{sterzinger2024drawing,
+      title={Drawing the Line: Deep Segmentation for Extracting Art from Ancient Etruscan Mirrors}, 
+      author={Rafael Sterzinger and Simon Brenner and Robert Sablatnig},
+      year={2024},
+      eprint={2404.15903},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+    }
