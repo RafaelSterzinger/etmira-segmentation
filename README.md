@@ -1,5 +1,5 @@
 # ICDAR 2024
-### Code for our paper: 
+## Code for our Paper: 
 
 __Rafael Sterzinger, Simon Brenner, and Robert Sablatnig: [Drawing the Line: Segmenting Art from Ancient Etruscan Mirrors]() at ICDAR2024.__
 
@@ -41,8 +41,6 @@ DIR_ROOT
 
 ## Installation
 
-The repository uses wandb for logging.
-
 Setup the environment by typing the following:
 
     conda env create -f environment.yml
@@ -52,26 +50,28 @@ Setup the environment by typing the following:
 Note that this process might take some time.
 Next, continue to define path variables and wandb information in ```user_config.py```, which is used for logging. 
 
-Finally, to preprocess the raw data for training run:
+Finally, to preprocess the raw data for the training run:
 
     python -m setup --use_labelled True
 
-Additionally, run ```python -m setup --use_labelled False```, in order to setup the data for cross-pseudo-supervision experiments. Note, however, that this will required lots of memory.
+Additionally, run ```python -m setup --use_labelled False``` in order to set up the data for cross-pseudo-supervision experiments. Note, however, that this will require lots of memory.
 
 ## Running
 
-In order to start training using the parameters of our best reported model, type the following:
+In order to start training using the parameters of our best-reported model, type the following:
 
     python -m train
 
-Additionally, after successfull training, inference will be performed on the whole mirror _ANSA-VI-1700_, using the model with heighest pseudo-F-Measure.
-If interested, parameters can be adjusted via command line arguments (see ```train.py```). After training, model weights will be stored under ```{WANDB_PROJECT}/{run_id}/checkpoints/epoch=*.ckpt``` 
+Additionally, after successful training, inference will be performed on the whole mirror _ANSA-VI-1700_, using the model with the highest pseudo-F-Measure.
+If interested, parameters can be adjusted via command line arguments (see ```train.py```). After training, model weights will be stored under ```{WANDB_PROJECT}/{run_id}/checkpoints/epoch=*.ckpt```
 
 ## Inference
 
 In order to run inference on any mirror, run the following:
 
     python -m eval --ckpt CHECKPOINT_OF_MODEL --eval_mirrors MIRRORS_TO_RUN_INFERENCE_ON
+
+Its output will be stored in the same folder as the checkpoint.
 
 ## Contact
 In case you have questions or find some errors, do not hesitate to contact me rsterzinger(at)cvl.tuwien.ac.at. 
