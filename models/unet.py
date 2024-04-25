@@ -195,7 +195,7 @@ class UNet(pl.LightningModule):
         optimizer = optim.Adam(self.parameters(), lr=self.lr)
 
         scheduler = {
-            'scheduler': ReduceLROnPlateau(optimizer, mode='min', patience=5, factor=0.5, verbose=True),
+            'scheduler': ReduceLROnPlateau(optimizer, mode='max', patience=5, factor=0.5, verbose=True),
             'monitor': 'metric/val/pf_measure',
         }
 
