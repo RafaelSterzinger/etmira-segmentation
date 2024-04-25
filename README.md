@@ -1,7 +1,6 @@
-# ICDAR 2024
-## Code for our Paper: 
+# ICDAR 2024 - Code to our Paper
 
-__Rafael Sterzinger, Simon Brenner, and Robert Sablatnig: [Drawing the Line: Segmenting Art from Ancient Etruscan Mirrors]() at ICDAR2024.__
+__Rafael Sterzinger, Simon Brenner, and Robert Sablatnig: ["Drawing the Line: Segmenting Art from Ancient Etruscan Mirrors"](https://arxiv.org/abs/2404.15903)__
 
 Note that, data will be provided at a later stage [here](https://www.oeaw.ac.at/acdh/tools/arche).
 
@@ -77,7 +76,7 @@ The output will be stored in the folder where the checkpoint is located.
 In case you have questions or find some errors, do not hesitate to contact me rsterzinger(at)cvl.tuwien.ac.at. 
 
 ## References
-Please consider citing our paper if you find it helpful!
+Please consider citing our paper!
 
     @misc{sterzinger2024drawing,
       title={Drawing the Line: Deep Segmentation for Extracting Art from Ancient Etruscan Mirrors}, 
