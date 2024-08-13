@@ -50,9 +50,9 @@ Next, continue to define path variables and wandb information in ```user_config.
 
 Finally, to preprocess the raw data for the training run:
 
-    python -m setup --use_labelled True
+    python -m data.setup --use_labelled True
 
-Additionally, run ```python -m setup --use_labelled False``` in order to set up the data for cross-pseudo-supervision experiments. Note, however, that this will require lots of memory.
+Additionally, run ```python -m data.setup --use_labelled False``` in order to set up the data for cross-pseudo-supervision experiments. Note, however, that this will require lots of memory.
 
 ## Training
 
