@@ -77,11 +77,15 @@ In case you have questions or find some errors, do not hesitate to contact me rs
 ## References
 Please consider citing our paper!
 
-    @misc{sterzinger2024drawing,
-      title={Drawing the Line: Deep Segmentation for Extracting Art from Ancient Etruscan Mirrors}, 
-      author={Rafael Sterzinger and Simon Brenner and Robert Sablatnig},
-      year={2024},
-      eprint={2404.15903},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+    @inbook{Sterzinger2024,
+      title = {Drawing the Line: Deep Segmentation for Extracting Art from Ancient Etruscan Mirrors},
+      ISBN = {9783031705434},
+      ISSN = {1611-3349},
+      url = {http://dx.doi.org/10.1007/978-3-031-70543-4_3},
+      DOI = {10.1007/978-3-031-70543-4_3},
+      booktitle = {Document Analysis and Recognition - ICDAR 2024},
+      publisher = {Springer Nature Switzerland},
+      author = {Sterzinger,  Rafael and Brenner,  Simon and Sablatnig,  Robert},
+      year = {2024},
+      pages = {39–56}
     }
