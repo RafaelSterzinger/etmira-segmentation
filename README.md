@@ -1,7 +1,6 @@
 ## Code to our [Paper](https://arxiv.org/abs/2404.15903):
 # Drawing the Line: Segmenting Art from Ancient Etruscan Mirrors @&nbsp;ICDAR 2024
 
-Note that, data will be provided at a later stage [here](https://www.oeaw.ac.at/acdh/tools/arche).
 
 ## Overview
 
@@ -10,6 +9,8 @@ Note that, data will be provided at a later stage [here](https://www.oeaw.ac.at/
 In order to segment artistic lines from damaged Etruscan hand mirrors, we employ a deep segmentation network, in our case a UNet, on a per-patch level ($512\times512$, stride $256$; resized to $256\times256$): Green denotes patches used during training, red, patches not used during training and yellow, ones that are included within the current mini-batch (32 patches). At inference, predictions are performed for all patches and are recombined to form the complete segmentation mask of a mirror.
 
 ## Data
+
+Download the Ground Truth Masks [here](https://drive.google.com/file/d/13i-X2W2V-iALQD600R7jtlwK3HVh2zxL/view?usp=drive_link) and the Input Data here (note that input data will be provided at a later stage).
 
 Please, download the data and store it in the following structure:
 
